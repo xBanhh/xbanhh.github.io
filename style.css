@@ -4,17 +4,17 @@
     box-sizing: border-box;
 }
 
-body {
+body{
     background-color: black;
     margin: 0;
-    color: aliceblue;
+    color:aliceblue;
     font-family: 'Inter', sans-serif;
     background-attachment: fixed;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-.section {
+.section{
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -30,13 +30,13 @@ body {
     text-align: center;
 }
 
-.content {
+.content{
     position: relative;
     z-index: 2;
 }
 
 :root {
-    --gray-text: #64748b;
+    --gray-text:#64748b;
     --primary-blue: #60a5fa;
     --purple: #a855f7;
     --accent-cyan: #7fffd4;
@@ -44,21 +44,23 @@ body {
     --accent-red: #fb7185;
     --accent-orange: #f59e0b;
 
-    --title-gradient: linear-gradient(90deg,
-            var(--accent-cyan),
-            var(--primary-blue),
-            var(--purple),
-            var(--accent-pink),
-            var(--accent-red),
-            var(--accent-orange));
+    --title-gradient: linear-gradient(
+        90deg,
+        var(--accent-cyan),
+        var(--primary-blue),
+        var(--purple),
+        var(--accent-pink),
+        var(--accent-red),
+        var(--accent-orange)
+    );
 
 }
 
-.realname {
+.realname{
     white-space: nowrap;
 }
 
-.description {
+.description{
     font-size: 1.3rem;
     color: var(--gray-text);
     margin-bottom: 3rem;
@@ -67,15 +69,16 @@ body {
     margin-right: auto;
 }
 
-.hightlight {
-    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+.hightlight{
+    background: linear-gradient(180deg,#00b3ff, #f17d7d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-
+    background-clip:text;
+    font-weight: 700;
 }
 
-.title {
+
+.title{
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     margin-bottom: 1rem;
@@ -85,14 +88,14 @@ body {
     background-clip: text;
 }
 
-.subtitle {
+.subtitle{
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     color: #cbd5e1;
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
-.decoration {
+.decoration{
     position: absolute;
     top: 0;
     left: 0;
@@ -113,84 +116,56 @@ body {
     font-size: 2rem;
     color: var(--primary-blue);
     opacity: 0.3;
-    animation: floatcode 8s ease-in-out infinite;
+    animation: floatcode 9s ease-in-out infinite;
     will-change: transform;
 }
 
-.floatingcode:nth-child(1)
-
-/*{ }*/
-    {
+.floatingcode:nth-child(1) /*{ }*/{
     top: 30%;
     left: 15%;
     animation-delay: 0s;
 }
-
-.floatingcode:nth-child(2)
-
-/*[ ]*/
-    {
+.floatingcode:nth-child(2) /*[ ]*/ {
     top: 70%;
     right: 20%;
     animation-delay: 2s;
 }
-
-.floatingcode:nth-child(3)
-
-/*</>*/
-    {
+.floatingcode:nth-child(3) /*</>*/ {
     bottom: 20%;
     left: 20%;
-    animation-delay: 1s;
+    animation-delay: 5s;
 }
-
-.floatingcode:nth-child(4)
-
-/*>_*/
-    {
-    top: 20%;
+.floatingcode:nth-child(4) /*>_*/ {
+    top:20%;
     right: 30%;
-    animation-delay: 3s;
+    animation-delay:3s;
 }
-
 @keyframes floatcode {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(-5deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
+    0%, 100% {transform: translateY(0px) rotate(-5deg);}
+    50% {transform: translateY(-20px) rotate(5deg);}
 }
 
-.blinking-text {
+.blinking-text{
     animation: blink 2s ease-in-out infinite;
 }
-
 @keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.7;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
 }
 
-.glow-text {
+.glow-text{
     animation: glow-text 3s ease-in-out infinite alternate;
 }
-
 @keyframes glow-text {
-    0% {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
-    }
+    0% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+    100% { text-shadow: 0 0 30px rgba(59, 130, 246, 0.9), 0 0 40px rgba(139, 92, 246, 0.6); }
+}
 
-    100% {
-        text-shadow: 0 0 30px rgba(59, 130, 246, 0.9), 0 0 40px rgba(139, 92, 246, 0.6);
-    }
+.float-text{
+    display: inline-block;
+    animation: float-text 5s ease-in-out infinite alternate;
+}
+@keyframes float-text{
+    0%,100% { transform: translateY(3px) rotate(-10deg); }
+    50% { transform: translateY(-1px) rotate(5deg); }
 }
