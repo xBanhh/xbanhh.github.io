@@ -14,7 +14,7 @@ function initializeTypingEffect() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 50);
+            setTimeout(typeWriter, 80);
         }
     };
 
