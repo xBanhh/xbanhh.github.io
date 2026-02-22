@@ -116,8 +116,7 @@ body{
     font-size: 2rem;
     color: var(--primary-blue);
     opacity: 0.3;
-    animation: floatcode 9s ease-in-out infinite;
-    will-change: transform;
+    animation: floatcode 9s ease-in-out infinite alternate;
 }
 
 .floatingcode:nth-child(1) /*{ }*/{
@@ -146,7 +145,7 @@ body{
 }
 
 .blinking-text{
-    animation: blink 2s ease-in-out infinite;
+    animation: blink 2s ease-in-out infinite alternate;
 }
 @keyframes blink {
     0%, 100% { opacity: 1; }
