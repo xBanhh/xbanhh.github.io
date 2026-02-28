@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaoAnh</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/sword.png">
-</head>
-<body>
-    <script defer src="script.js"></script>
-    <section id="intro" class="section active">
-       <div class="container">
-            <div class="content">
-                <h1 class="title glow-text">xBanh <span class="realname">(Bảo Anh)</span> </h1>
-                <p class="subtitle blinking-text">Sinh Viên Khoa CNTT | Ha Long University</p>
-                <p class="description">Chào mừng đến hồ sơ cá nhân của tôi, tôi là sinh viên CNTT năm <span class="hightlight float-text">1</span> trường Đại Học Hạ Long - UHL </p>
-            </div>
-            <div class = "decoration">
-                <div class="floatingelements">
-                    <div class="floatingcode">{ }</div>
-                    <div class="floatingcode">[ ]</div>
-                    <div class="floatingcode"> &lt/&gt </div>
-                    <div class="floatingcode"> >_ </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BaoAnh</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="images/sword.png">
+    </head>
+    <body>
+        <div id="music-player">
+            <div id="now-playing-music"></div>
+            <button id="music-toggle">⏸</button>
+        </div>
+        <audio id="bg-music" preload="none"></audio>
+
+        <section id="intro" class="section active">
+            <p class="views">
+                <span class="eye-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M2 12C2 12 5.5 5 12 5C18.5 5 22 12 22 12C22 12 18.5 19 12 19C5.5 19 2 12 2 12Z" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span id="view-count">0</span>
+            </p>
+
+            <div class="container">
+                <div class="content">
+                    <h1 class="title glow-text">xBanh <span class="realname">(Bảo Anh)</span> </h1>
+                    <p class="subtitle blinking-text">Sinh Viên Khoa CNTT | Ha Long University</p>
+                    <p class="description">Chào mừng đến hồ sơ cá nhân của tôi, tôi là sinh viên CNTT năm <span class="hightlight float-text">1</span> trường Đại Học Hạ Long - UHL </p>
                 </div>
-            </div>
-        </div> 
-    </section>
-    
-</body>
+
+                <div class = "decoration">
+                    <div class="floatingelements">
+                        <div class="floatingcode">{ }</div>
+                        <div class="floatingcode">[ ]</div>
+                        <div class="floatingcode"> &lt/&gt </div>
+                        <div class="floatingcode"> >_ </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <script type="module" src="firebase.js"></script>
+        <script defer src="script.js"></script>
+    </body>
 </html>
