@@ -168,3 +168,118 @@ body{
     0%,100% { transform: translateY(3px) rotate(-10deg); }
     50% { transform: translateY(-1px) rotate(5deg); }
 }
+
+#music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+
+    transition: 0.3s ease;
+    opacity: 0.6;
+}
+#music-player:hover {
+    opacity: 1;
+    background: rgba(255,255,255,0.12);
+}
+#music-toggle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+#now-playing-music {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+.music-dot {
+    width: 8px;
+    height: 8px;
+    background: #60faaa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #60faaa;
+    animation: pulse 1.5s infinite ease-in-out alternate;
+}
+.label {
+    color: #94a3b8;
+    font-size: 12px;
+}
+.song {
+    color: white;
+    font-weight: 500;
+    animation: glowSong 2.5s ease-in-out infinite alternate;
+}
+@keyframes glowSong {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+#music-player.paused .music-dot {
+    animation: none;
+    opacity: 0.3;
+}
+#music-player.paused .song {
+    animation: none;
+    opacity: 0.5;
+}
+#music-player {
+    z-index: 9999;
+}
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
+.views {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #60a5fa;
+}
+.eye-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: 0.3s ease;
+}
+#view-count {
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+#view-count.new-view-glow,
+#view-count.new-view-glow + .eye-icon svg {
+    animation: viewGlow 1.5s ease-out;
+}
+.views .eye-icon {
+    display: flex;
+}
+.views .eye-icon svg {
+    filter: drop-shadow(0 0 0px transparent);
+}
+#view-count.new-view-glow ~ .eye-icon svg {
+    filter: drop-shadow(0 0 10px #60a5fa) drop-shadow(0 0 20px #a855f7);
+}
