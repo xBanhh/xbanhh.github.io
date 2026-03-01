@@ -192,14 +192,52 @@ body{
     background: rgba(255,255,255,0.12);
 }
 #music-toggle {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+
     border: none;
-    background: rgba(255,255,255,0.1);
+    outline: none;
+
+    background: linear-gradient(135deg, #60a5fa, #a855f7);
     color: white;
+
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 0 10px rgba(96,165,250,0.4);
+}
+
+/* Hover (PC) */
+#music-toggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(168,85,247,0.7);
+}
+
+/* Khi nhấn */
+#music-toggle:active {
+    transform: scale(0.92);
+    box-shadow: 0 0 8px rgba(96,165,250,0.6);
+}
+
+/* Bỏ viền xanh khó chịu mobile */
+#music-toggle:focus {
+    outline: none;
+}
+
+#music-toggle:focus-visible {
+    outline: none;
+}
+
+/* Bỏ highlight khi tap Android */
+#music-toggle {
+    -webkit-tap-highlight-color: transparent;
 }
 #now-playing-music {
     display: flex;
@@ -215,6 +253,11 @@ body{
     border-radius: 50%;
     box-shadow: 0 0 8px #60faaa;
     animation: pulse 1.5s infinite ease-in-out alternate;
+}
+.music-dot.not-playing {
+    background: #ff4d4d;
+    box-shadow: 0 0 8px #ff4d4d;
+    animation: none;
 }
 .label {
     color: #94a3b8;

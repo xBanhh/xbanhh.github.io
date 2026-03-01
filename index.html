@@ -10,7 +10,11 @@
     <body>
         <div id="music-player">
             <div id="now-playing-music"></div>
-            <button id="music-toggle">⏸</button>
+            <button id="music-toggle" aria-label="Toggle Music">
+                <svg id="music-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path id="icon-shape" d="M6 5h4v14H6zm8 0h4v14h-4z" fill="currentColor"/>
+                </svg>
+            </button>
         </div>
         <audio id="bg-music" preload="none"></audio>
 

@@ -26,15 +26,16 @@ function initializeTypingEffect() {
 const playlist = [
     "music/clark.mp3",
     "music/dog.mp3",
-    "music/miceonvenus.mp3",
-    "music/wethand.mp3"
+    "music/mice-on-venus.mp3",
+    "music/wet-hand.mp3"
 ];
 function initializeMusic() {
 
     const music = document.getElementById("bg-music");
     const btn = document.getElementById("music-toggle");
+    const iconShape = document.getElementById("icon-shape");
     const nowPlaying = document.getElementById("now-playing-music");
-
+    let hasStarted = false;
     if (!music || !btn || !nowPlaying) return;
 
     music.volume = 0.2;
@@ -51,22 +52,30 @@ function initializeMusic() {
 
     let i = 0;
 
-    function updateNowPlaying() {
-        let fileName = queue[i].split("/").pop().replace(".mp3", "");
+    function updateNowPlaying(isPlaying = true) {
 
-        if (!fileName.includes(" ")) {
-            fileName = fileName.replace(/([A-Z])/g, " $1");
-        }
-
-        fileName = fileName.replace(/\b\w/g, c => c.toUpperCase()).trim();
-
+    if (!hasStarted) {
         nowPlaying.innerHTML = `
-            <span class="music-dot"></span>
-            <span class="label">Now Playing</span>
-            <span>–</span>
-            <span class="song">${fileName}</span>
+            <span class="music-dot not-playing"></span>
+            <span class="label">Not Playing Music</span>
         `;
+        return;
     }
+    let fileName = queue[i].split("/").pop().replace(".mp3", "");
+    fileName = formatSongName(fileName);
+    nowPlaying.innerHTML = `
+        <span class="music-dot ${isPlaying ? "" : "not-playing"}"></span>
+        <span class="label">Now Playing</span>
+        <span>–</span>
+        <span class="song">${fileName}</span>`;
+    }
+    function formatSongName(name) {
+    return name
+        .replace(/-/g, " ")
+        .replace(/_/g, " ")
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .replace(/\b\w/g, c => c.toUpperCase());
+}
 
     function playCurrent() {
 
@@ -74,14 +83,15 @@ function initializeMusic() {
     updateNowPlaying();
 
     music.play().then(() => {
-
-        btn.textContent = "⏸";
+        hasStarted = true;
+        updateNowPlaying(true);
+        iconShape.setAttribute("d","M6 5h4v14H6zm8 0h4v14h-4z");
         document.getElementById("music-player").classList.remove("paused");
 
     }).catch(() => {
 
         // autoplay bị chặn
-        btn.textContent = "▶";
+        iconShape.setAttribute("d","M8 5v14l11-7z");
         document.getElementById("music-player").classList.add("paused");
 
     });
@@ -101,14 +111,17 @@ function initializeMusic() {
     if (music.paused) {
 
         music.play().then(() => {
-            btn.textContent = "⏸";
+            hasStarted = true
+            updateNowPlaying(true);
+            iconShape.setAttribute("d","M6 5h4v14H6zm8 0h4v14h-4z");
             document.getElementById("music-player").classList.remove("paused");
         });
 
     } else {
 
         music.pause();
-        btn.textContent = "▶";
+            updateNowPlaying(false);
+            iconShape.setAttribute("d","M8 5v14l11-7z");
         document.getElementById("music-player").classList.add("paused");
 
     }
