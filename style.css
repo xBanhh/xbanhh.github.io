@@ -141,7 +141,7 @@ body{
 }
 .floatingcode:nth-child(5) /*kali*/ {
     bottom:10%;
-    right: 35%;
+    right: 5%;
     animation-delay:5s;
 }
 @keyframes floatcode {
