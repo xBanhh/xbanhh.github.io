@@ -143,7 +143,6 @@ body{
     bottom:10%;
     right: 45%;
     animation-delay:5s;
-    width:10%;
 }
 @keyframes floatcode {
     0%, 100% {transform: translateY(0px) rotate(-5deg);}
