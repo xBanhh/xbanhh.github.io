@@ -139,6 +139,11 @@ body{
     right: 30%;
     animation-delay:3s;
 }
+.floatingcode:nth-child(5) /*kali*/ {
+    bottom:10%;
+    right: 45%;
+    animation-delay:5s;
+}
 @keyframes floatcode {
     0%, 100% {transform: translateY(0px) rotate(-5deg);}
     50% {transform: translateY(-20px) rotate(5deg);}
